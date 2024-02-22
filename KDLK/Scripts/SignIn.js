@@ -42,7 +42,7 @@ async function getSignin() {
         body: JSON.stringify(reqBody)
     };
     const res = await $.request(myRequest);
-    const { code, msg } = JSON.parse(res);
+    const { code, msg } =res;
     if (code === '200') {
         await getSigninInfo(true);
     } else {
