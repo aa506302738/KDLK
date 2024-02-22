@@ -6,6 +6,7 @@ try {
     const { Cookie, access_token, idpuserid, client_id } = headers;
     const deviceId = "ios";
     console.log("------------------------------------")
+    
     const { body } = $response;
     console.log("------------------------------------")
     const { data } = JSON.parse(body);
