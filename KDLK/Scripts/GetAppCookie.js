@@ -7,17 +7,17 @@ try {
     console.log("---------------------------------------------------------------------------")
     const { body } = $response;
     console.log("---------------------------------------------------------------------------")
-    const { data } = JSON.parse(body);
+    //const { data } = JSON.parse(body);
     console.log("---------------------------------------------------------------------------")
     const deviceId = "ios";
     console.log("---------------------------------------------------------------------------")
-    if (url.includes('baseInfo')) {
-        const phone = data.profileInfo.phone;
+    if (url.includes('userGetAuthorizationList')) {
+        //const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
             idpUserId: idpuserid,
             deviceId,
             client_id,
-            phone
+           // phone
         });
     } else {
         const { accessToken, refreshToken } = data.auth;
