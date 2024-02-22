@@ -3,8 +3,8 @@ const $ = new Tool('凯迪拉克');
 try {
     const { url, headers } = $request;
     console.log("------------------------------------")
-    const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
-    console.log(deviceId);
+    const { Cookie, access_token, idpuserid, client_id } = headers;
+    const deviceId = "ios";
     console.log("------------------------------------")
     const { body } = $response;
     console.log("------------------------------------")
