@@ -4,6 +4,7 @@ try {
     const { url, headers } = $request;
     console.log("------------------------------------")
     const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
+    console.log(deviceId);
     console.log("------------------------------------")
     const { body } = $response;
     console.log("------------------------------------")
