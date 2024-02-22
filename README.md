@@ -21,4 +21,4 @@
 
 -   自动签到
 
-源码从github其他作者获取，个人拉库使用
+源码从github其他作者获取，个人拉库使用,作者:https://github.com/panghujiajia
