@@ -5,12 +5,12 @@ try {
     const { Cookie } = headers;
     $.log(headers);
     if (!Cookie) {
-        $.log(`获取Cookie失败：${JSON.stringify(headers)}`);
-        $.notify(`Cookie获取失败！`);
+        $.log(`积分商城 获取Cookie失败：${JSON.stringify(headers)}`);
+        $.notify(`积分商城 Cookie获取失败！`);
     } else {
         $.setStore('KDLK_STORE_COOKIE', Cookie);
         $.log(`Cookie：${Cookie}`);
-        $.notify(`Cookie写入成功！`);
+        $.notify(`积分商城 Cookie写入成功！`);
     }
 } catch (error) {
     $.log(`Error：\n${error}\n${JSON.stringify(error)}`);
