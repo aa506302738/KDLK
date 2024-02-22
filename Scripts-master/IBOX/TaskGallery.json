@@ -1,9 +1,0 @@
-{
-    "name": "Ibox",
-    "task": [
-        {
-            "config": "10/20 * * * * https://raw.githubusercontent.com/panghujiajia/Scripts/master/IBOX/Scripts/GetNotice.js, tag=Ibox公告监测, enabled=true"
-        }
-    ],
-    "description": "Ibox公告监测"
-}
