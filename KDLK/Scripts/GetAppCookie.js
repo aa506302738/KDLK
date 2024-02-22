@@ -19,6 +19,7 @@ try {
         });
     } else {
         const { accessToken, refreshToken } = data.auth;
+        console.log(data.auth);
         if (accessToken || access_token) {
             $.setStore('KDLK_APP_ACCESS_TOKEN', accessToken || access_token);
         }
