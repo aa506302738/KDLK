@@ -20,3 +20,5 @@
 ### [京东](https://github.com/panghujiajia/Scripts/tree/master/JD)
 
 -   自动签到
+
+源码从github其他作者获取，个人拉库使用
