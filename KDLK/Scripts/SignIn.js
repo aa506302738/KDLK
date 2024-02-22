@@ -46,7 +46,7 @@ async function getSignin() {
     if (code === '200') {
         await getSigninInfo(true);
     } else {
-        $.notify(`??????签到失败！`, `失败原因：${msg}`);
+        $.notify(`签到失败！`, `失败原因：${msg}`);
     }
 }
 
