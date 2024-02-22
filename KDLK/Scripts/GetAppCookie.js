@@ -3,7 +3,6 @@ const $ = new Tool('凯迪拉克');
 try {
     const { url, headers } = $request;
     const { Cookie, access_token, idpuserid, client_id } = headers;
-    console.log(headers);
     const { body } = $response;
     const { data } = JSON.parse(body);
     const deviceId = "ios";
@@ -48,7 +47,7 @@ function notify() {
         KDLK_APP_ACCESS_TOKEN &&
         KDLK_APP_REFRESH_ACCESS_TOKEN
     ) {
-        $.notify(`Cookie写入成功！`);
+        $.notify(`APP Cookie写入成功！`);
     }
 }
 $.done();
