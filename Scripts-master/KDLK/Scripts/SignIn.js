@@ -1,19 +1,21 @@
 const $ = new Tool('凯迪拉克');
 
-const KDLK_STORE_COOKIE = $.getStore('KDLK_STORE_COOKIE');
+const KDLK_STORE_COOKIE = "Path=/; JSESSIONID=B40229EDE6CD30829C71734FBEEFD8A7.jvm1; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2218dcb362db4209-01c3cf660c8062e-5b2f7333-400760-18dcb362db635e%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMThkY2IzNjJkYjQyMDktMDFjM2NmNjYwYzgwNjJlLTViMmY3MzMzLTQwMDc2MC0xOGRjYjM2MmRiNjM1ZSJ9%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%2C%22%24device_id%22%3A%2218dcb362db4209-01c3cf660c8062e-5b2f7333-400760-18dcb362db635e%22%7D; route=c8b58a4bd89c028460fd040cf419b1ea; Hm_lvt_b445b61ee564ac8bd6df77f22118275f=1708566922";
 
 let method = 'POST';
 let baseUrl = 'https://cadillac-club.mysgm.com.cn/touch/control';
 let headers = {
-    accept: '*/*',
-    'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'x-requested-with': 'XMLHttpRequest',
-    Cookie: KDLK_STORE_COOKIE,
-    Referer: 'https://cadillac-club.mysgm.com.cn/touch/control/signin',
-    'Referrer-Policy': 'strict-origin-when-cross-origin'
+    Host: 'cadillac-club.mysgm.com.cn',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Accept-Language': 'zh-CN,zh-Hans;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    Accept: '*/*',
+    Origin: 'https://cadillac-club.mysgm.com.cn',
+    'Content-Length': '0',
+    Connection: 'keep-alive',
+    'User-Agent': 'mycadillac_app_new Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+    Referer: 'https://cadillac-club.mysgm.com.cn/touchs/index.html',
+    Cookie: KDLK_STORE_COOKIE
 };
 
 !(async () => {
@@ -44,7 +46,7 @@ async function getSignin() {
     if (code === '200') {
         await getSigninInfo(true);
     } else {
-        $.notify(`❗️❗️❗️签到失败！`, `失败原因：${msg}`);
+        $.notify(`??????签到失败！`, `失败原因：${msg}`);
     }
 }
 
@@ -58,12 +60,17 @@ async function getSigninInfo(success) {
         headers,
         body: JSON.stringify(reqBody)
     };
+
     const res = await $.request(myRequest);
+    console.log(res);
     const {
         signinData: { continuousDay, signCount, signDatePoint },
         signin
-    } = JSON.parse(res);
+    } = res;
+
+    console.log('进入成功')
     if (signin === 'Y') {
+
         await getSignin();
     } else {
         const date = new Date();
@@ -75,12 +82,12 @@ async function getSigninInfo(success) {
 
         if (success) {
             $.notify(
-                `🎉🎉🎉签到成功！`,
+                `???签到成功！`,
                 `本次签到获得${last}积分，累计签到${signCount}天，已连续签到${continuousDay}天`
             );
         } else {
             $.notify(
-                `❗️❗️❗️今日已签到！`,
+                `??????今日已签到！`,
                 `累计签到${signCount}天，已连续签到${continuousDay}天`
             );
         }
@@ -88,4 +95,78 @@ async function getSigninInfo(success) {
 }
 
 // prettier-ignore
-function Tool(t="📣📣📣"){const e="undefined"!=typeof module&&!!module.exports&&"node",o="undefined"!=typeof $task&&"quanx",s="undefined"!=typeof $httpClient&&"surge",r=e||o||s;this.title=t;const i=t=>(t&&(t.status?t.statusCode=t.status:t.statusCode&&(t.status=t.statusCode)),t),n=(t,e)=>{$.log(`${t}：${e}`);try{e=JSON.parse(e)}catch(t){}return e},a=()=>{let{localStorage:t,fetch:e}=this;if(!t){let e=require("node-localstorage").LocalStorage;const o=new e("./store");t=o}if(!e){const t=(...t)=>import("node-fetch").then(({default:e})=>e(...t));e=t}return{localStorage:t,fetch:e}};this.log=(t=>{"object"==typeof t?console.log(`\n${JSON.stringify(t)}`):console.log(`\n${t}`)}),this.request=(async t=>{if(o)try{const e=await $task.fetch(t),{status:o,body:s}=i(e);return 200!==o?Promise.reject(e):Promise.resolve(s)}catch(t){return this.log(`接口响应错误：\n${t}\n${JSON.stringify(t)}`),Promise.reject(t)}if(s)return new Promise((e,o)=>{const{method:s}=t;$httpClient[s.toLowerCase()](t,(t,s,r)=>{if(t)return o(t);const{status:n}=i(s);return 200!==n?o(s):e(r)})});if(e){const{localStorage:e,fetch:o}=a();try{const{url:e,...s}=t,r=await o(e,s),{status:n}=i(r),a=s.headers.contentType,l="text/html"===a?await r.text():await r.json();return 200!==n?Promise.reject(l):Promise.resolve(l)}catch(t){return this.log(`接口响应错误：\n${t}\n${JSON.stringify(t)}`),Promise.reject(t)}}}),this.done=((t={})=>{(o||s)&&$done(t),e&&this.log(t)}),this.wait=(t=>new Promise(e=>{setTimeout(()=>{e(!0)},1e3*t||2e3)})),this.notify=((t="",r="")=>{o&&$notify(this.title,t,r),s&&$notification.post(this.title,t,r),e&&this.log(`${this.title}\n${t}\n${r}`)}),this.getStore=(t=>{if(o)return n(t,$prefs.valueForKey(t));if(s)return n(t,$persistentStore.read(t));if(e){const{localStorage:e,fetch:o}=a();let s=e.getItem(t);return n(t,s)}}),this.setStore=((t,r)=>{if("object"==typeof r&&(r=JSON.stringify(r)),o&&$prefs.setValueForKey(r,t),s&&$persistentStore.write(r,t),e){const{localStorage:e,fetch:o}=a();e.setItem(t,r)}}),this.log(`脚本应用：${this.title}\n脚本环境：${r}`)}
+function Tool(t = "???") {
+    const e = "undefined" != typeof module && !!module.exports && "node", o = "undefined" != typeof $task && "quanx",
+        s = "undefined" != typeof $httpClient && "surge", r = e || o || s;
+    this.title = t;
+    const i = t => (t && (t.status ? t.statusCode = t.status : t.statusCode && (t.status = t.statusCode)), t),
+        n = (t, e) => {
+            $.log(`${t}：${e}`);
+            try {
+                e = JSON.parse(e)
+            } catch (t) {
+            }
+            return e
+        }, a = () => {
+            let {localStorage: t, fetch: e} = this;
+            if (!t) {
+                let e = require("node-localstorage").LocalStorage;
+                const o = new e("./store");
+                t = o
+            }
+            if (!e) {
+                const t = (...t) => import("node-fetch").then(({default: e}) => e(...t));
+                e = t
+            }
+            return {localStorage: t, fetch: e}
+        };
+    this.log = (t => {
+        "object" == typeof t ? console.log(`\n${JSON.stringify(t)}`) : console.log(`\n${t}`)
+    }), this.request = (async t => {
+        if (o) try {
+            const e = await $task.fetch(t), {status: o, body: s} = i(e);
+            return 200 !== o ? Promise.reject(e) : Promise.resolve(s)
+        } catch (t) {
+            return this.log(`接口响应错误：\n${t}\n${JSON.stringify(t)}`), Promise.reject(t)
+        }
+        if (s) return new Promise((e, o) => {
+            const {method: s} = t;
+            $httpClient[s.toLowerCase()](t, (t, s, r) => {
+                if (t) return o(t);
+                const {status: n} = i(s);
+                return 200 !== n ? o(s) : e(r)
+            })
+        });
+        if (e) {
+            const {localStorage: e, fetch: o} = a();
+            try {
+                const {url: e, ...s} = t, r = await o(e, s), {status: n} = i(r), a = s.headers.contentType,
+                    l = "text/html" === a ? await r.text() : await r.json();
+                return 200 !== n ? Promise.reject(l) : Promise.resolve(l)
+            } catch (t) {
+                return this.log(`接口响应错误：\n${t}\n${JSON.stringify(t)}`), Promise.reject(t)
+            }
+        }
+    }), this.done = ((t = {}) => {
+        (o || s) && $done(t), e && this.log(t)
+    }), this.wait = (t => new Promise(e => {
+        setTimeout(() => {
+            e(!0)
+        }, 1e3 * t || 2e3)
+    })), this.notify = ((t = "", r = "") => {
+        o && $notify(this.title, t, r), s && $notification.post(this.title, t, r), e && this.log(`${this.title}\n${t}\n${r}`)
+    }), this.getStore = (t => {
+        if (o) return n(t, $prefs.valueForKey(t));
+        if (s) return n(t, $persistentStore.read(t));
+        if (e) {
+            const {localStorage: e, fetch: o} = a();
+            let s = e.getItem(t);
+            return n(t, s)
+        }
+    }), this.setStore = ((t, r) => {
+        if ("object" == typeof r && (r = JSON.stringify(r)), o && $prefs.setValueForKey(r, t), s && $persistentStore.write(r, t), e) {
+            const {localStorage: e, fetch: o} = a();
+            e.setItem(t, r)
+        }
+    }), this.log(`脚本应用：${this.title}\n脚本环境：${r}`)
+}
