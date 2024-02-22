@@ -2,22 +2,20 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
-    console.log("---------------------------------------------------------------------------")
-    const { Cookie, access_token, idpuserid, client_id } = headers;
-    console.log("---------------------------------------------------------------------------")
-    //const { body } = $response;
-    console.log("---------------------------------------------------------------------------")
-    //const { data } = JSON.parse(body);
-    console.log("---------------------------------------------------------------------------")
-    const deviceId = "ios";
-    console.log("---------------------------------------------------------------------------")
-    if (url.includes('userGetAuthorizationList')) {
-        //const phone = data.profileInfo.phone;
+    console.log("------------------------------------")
+    const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
+    console.log("------------------------------------")
+    const { body } = $response;
+    console.log("------------------------------------")
+    const { data } = JSON.parse(body);
+    console.log("------------------------------------")
+    if (url.includes('baseInfo')) {
+        const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
             idpUserId: idpuserid,
             deviceId,
             client_id,
-           // phone
+            phone
         });
     } else {
         const { accessToken, refreshToken } = data.auth;
