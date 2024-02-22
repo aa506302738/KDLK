@@ -53,7 +53,7 @@ function notify() {
         KDLK_APP_ACCESS_TOKEN &&
         KDLK_APP_REFRESH_ACCESS_TOKEN
     ) {
-        $.notify(`Cookie写入成功！`);
+        $.notify(`APP Cookie写入成功！`);
     }
 }
 $.done();
