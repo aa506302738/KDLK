@@ -1,6 +1,6 @@
 const $ = new Tool('凯迪拉克');
 
-const KDLK_STORE_COOKIE = $.getStore('KDLK_STORE_COOKIE');
+const KDLK_STORE_COOKIE = "Path=/; JSESSIONID=B40229EDE6CD30829C71734FBEEFD8A7.jvm1; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2218dcb362db4209-01c3cf660c8062e-5b2f7333-400760-18dcb362db635e%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMThkY2IzNjJkYjQyMDktMDFjM2NmNjYwYzgwNjJlLTViMmY3MzMzLTQwMDc2MC0xOGRjYjM2MmRiNjM1ZSJ9%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D%2C%22%24device_id%22%3A%2218dcb362db4209-01c3cf660c8062e-5b2f7333-400760-18dcb362db635e%22%7D; route=c8b58a4bd89c028460fd040cf419b1ea; Hm_lvt_b445b61ee564ac8bd6df77f22118275f=1708566922";
 
 let method = 'POST';
 let baseUrl = 'https://cadillac-club.mysgm.com.cn/touch/control';
@@ -62,15 +62,12 @@ async function getSigninInfo(success) {
     };
 
     const res = await $.request(myRequest);
-    console.log(res);
     const {
         signinData: { continuousDay, signCount, signDatePoint },
         signin
     } = res;
 
-    console.log('进入成功')
     if (signin === 'Y') {
-
         await getSignin();
     } else {
         const date = new Date();
@@ -82,12 +79,12 @@ async function getSigninInfo(success) {
 
         if (success) {
             $.notify(
-                `???签到成功！`,
+                `签到成功！`,
                 `本次签到获得${last}积分，累计签到${signCount}天，已连续签到${continuousDay}天`
             );
         } else {
             $.notify(
-                `??????今日已签到！`,
+                `今日已签到！`,
                 `累计签到${signCount}天，已连续签到${continuousDay}天`
             );
         }
