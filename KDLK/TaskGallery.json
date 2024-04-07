@@ -10,7 +10,7 @@
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Rewrite.conf, tag=凯迪拉克获取COOKIE, enabled=true"
         },
         {
-            "config": "10/20 * * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Scripts/RefreshCookie.js, tag=凯迪拉克刷新COOKIE, enabled=true",
+            "config": "10/10 * * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Scripts/RefreshCookie.js, tag=凯迪拉克刷新COOKIE, enabled=true",
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Rewrite.conf, tag=凯迪拉克获取COOKIE, enabled=true"
         }
     ],
