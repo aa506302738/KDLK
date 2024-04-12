@@ -4,7 +4,6 @@ const AJX_COOKIE = $.getStore('AJX_COOKIE');
 const AJX_TOKEN = $.getStore('AJX_TOKEN');
 
 let method = 'POST';
-let baseUrl = 'https://www.onstar.com.cn/mssos/sos/credit/v1/';
 let headers = {
     Connection: `keep-alive`,
     'Accept-Encoding': `gzip, deflate, br`,
@@ -34,7 +33,7 @@ let headers = {
 
 // 签到方法
 async function getSignin() {
-    const url = `${baseUrl}/userSignIn`;
+    const url = `https://api.shanghaionstar.com/sos/mobileBizAggr/v1/getUserSign`;
     const reqBody = {};
     const myRequest = {
         url,
@@ -53,7 +52,7 @@ async function getSignin() {
 
 // 获取签到信息
 async function getSigninInfo(success) {
-    const url = `${baseUrl}/getUserSignInit`;
+    const url = `https://www.onstar.com.cn/mssos/sos/credit/v1/getUserSignInit`;
     const reqBody = {};
     const myRequest = {
         url,
