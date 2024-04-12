@@ -2,8 +2,9 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
-    console.log(headers)
-    const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
+    const { xy_headers } = $response;
+    const { Cookie } = xy_headers;
+    const { access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
     if (url.includes('baseInfo')) {
