@@ -2,8 +2,7 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
-    const { Cookie, access_token, idpuserid, client_id } = headers;
-    const deviceId = "ios";
+    const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
     if (url.includes('baseInfo')) {
@@ -16,7 +15,6 @@ try {
         });
     } else {
         const { accessToken, refreshToken } = data.auth;
-        console.log(data.auth);
         if (accessToken || access_token) {
             $.setStore('KDLK_APP_ACCESS_TOKEN', accessToken || access_token);
         }
@@ -48,7 +46,7 @@ function notify() {
         KDLK_APP_ACCESS_TOKEN &&
         KDLK_APP_REFRESH_ACCESS_TOKEN
     ) {
-        $.notify(`APP Cookie写入成功！`);
+        $.notify(`Cookie写入成功！`);
     }
 }
 $.done();
