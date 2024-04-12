@@ -11,7 +11,7 @@ try {
         const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
             idpUserId: idpuserid,
-            uuid,
+            deviceId:uuid,
             client_id,
             phone
         });
