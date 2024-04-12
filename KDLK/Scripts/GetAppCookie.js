@@ -2,7 +2,8 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
-    const { Cookie } = "4b2d411487eb8a8926cf4bb05cdcbd87=82e94942e49fc7253fdea48ba9f42a5c";
+    const responseHeaders = $response.headers;
+    const Cookie = responseHeaders['Set-Cookie'];
     const { access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
