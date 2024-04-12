@@ -6,7 +6,7 @@
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/AJX/Rewrite.conf, tag=安吉星获取COOKIE, enabled=true"
         },
         {
-            "config": "5/5 * * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/AJX/Scripts/RefreshCookie.js, tag=凯迪拉克刷新COOKIE, enabled=true",
+            "config": "5/5 * * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/AJX/Scripts/RefreshCookie.js, tag=安吉星刷新COOKIE, enabled=true",
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/AJX/Rewrite.conf, tag=安吉星刷新COOKIE, enabled=true"
         }
     ],
