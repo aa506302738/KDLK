@@ -58,6 +58,7 @@ async function getTask() {
     };
     const res = await $.request(myRequest);
     const { data, resultCode, message } = JSON.parse(res);
+    console.log(resultCode)
     if (resultCode === '0000') {
         const { taskGroups } = data;
         const task = taskGroups.find(item => item.taskGroup === 'DAY');
@@ -76,8 +77,8 @@ async function getTask() {
                 }
             }
         }
-    } else if (resultCode === '401') {
-        $.notify(message, `请重新获取`);
+    } else if (resultCode === 401) {
+        $.notify(message, `APP TOKEN已过期,请重新登录APP获取`);
     }
 }
 
