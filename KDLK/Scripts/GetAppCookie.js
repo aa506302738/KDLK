@@ -15,13 +15,12 @@ try {
         });
     } else {
         const { accessToken, refreshToken } = data.auth;
-        console.log("1111111111111111111111111111111111")
+        console.log(accessToken)
+        console.log(refreshToken)
         if (accessToken || access_token) {
-            console.log("22222222222222222222222222222222222222222")
             $.setStore('KDLK_APP_ACCESS_TOKEN', accessToken || access_token);
         }
         if (refreshToken) {
-            console.log("33333333333333333333333333333333333333333")
             $.setStore('KDLK_APP_REFRESH_ACCESS_TOKEN', refreshToken);
         }
     }
