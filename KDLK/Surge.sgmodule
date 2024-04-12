@@ -2,7 +2,7 @@
 #!desc=凯迪拉克签到+每日任务
 
 [MITM]
-hostname= %APPEND% app.sgmlink.com, cadillac-club.mysgm.com.cn
+hostname= %APPEND% app.sgmlink.com, cadillac-club.mysgm.com.cn, mycadillac.apps.sgmsonline.com
 
 [Script]
 凯迪拉克刷新Cookie = type=cron,cronexp=5/10 * * * *,script-path=https://raw.githubusercontent.com/panghujiajia/Scripts/master/KDLK/Scripts/RefreshCookie.js,debug=1
