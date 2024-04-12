@@ -2,6 +2,7 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
+    console.log(headers)
     const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
@@ -25,7 +26,6 @@ try {
         }
     }
     if (Cookie) {
-        console.log("4444444444444444444444444444444444444")
         $.setStore('KDLK_APP_COOKIE', Cookie);
     }
     notify();
