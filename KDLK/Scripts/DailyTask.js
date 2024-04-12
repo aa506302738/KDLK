@@ -55,9 +55,7 @@ async function getTask() {
         body: JSON.stringify(reqBody)
     };
     const res = await $.request(myRequest);
-    console.log(res)
     const { data, resultCode, message } = JSON.parse(res);
-    console.log(resultCode)
     if (resultCode === '0000') {
         const { taskGroups } = data;
         const task = taskGroups.find(item => item.taskGroup === 'DAY');
