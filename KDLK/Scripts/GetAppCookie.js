@@ -4,14 +4,14 @@ try {
     const { url, headers } = $request;
     const responseHeaders = $response.headers;
     const Cookie = responseHeaders['Set-Cookie'];
-    const { access_token, idpuserid, deviceId, client_id } = headers;
+    const { access_token, idpuserid, uuid, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
     if (url.includes('baseInfo')) {
         const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
             idpUserId: idpuserid,
-            deviceId,
+            uuid,
             client_id,
             phone
         });
