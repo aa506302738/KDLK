@@ -3,8 +3,8 @@ const $ = new Tool('凯迪拉克');
 const KDLK_APP_COOKIE = $.getStore('KDLK_APP_COOKIE');
 const KDLK_APP_HEARDERS = $.getStore('KDLK_APP_HEARDERS');
 const KDLK_APP_ACCESS_TOKEN = $.getStore('KDLK_APP_ACCESS_TOKEN');
-
-const { idpUserId, deviceId, client_id } = KDLK_APP_HEARDERS;
+const  deviceId = KDLK_APP_HEARDERS.uuid;
+const { idpUserId, client_id } = KDLK_APP_HEARDERS;
 
 let method = 'POST';
 let baseUrl = 'https://app.sgmlink.com:443/service/mycadillacv3/rest/api';
