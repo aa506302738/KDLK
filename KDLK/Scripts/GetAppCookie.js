@@ -3,7 +3,9 @@ const $ = new Tool('凯迪拉克');
 try {
     const { url, headers } = $request;
     const { xy_headers } = $response;
+    console.log("111111111111111111111111111111")
     const { Cookie } = xy_headers;
+    console.log("2222222222222222222222222222222")
     const { access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
