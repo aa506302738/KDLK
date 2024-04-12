@@ -13,17 +13,20 @@ try {
             client_id,
             phone
         });
-    console.log("11111111111111111111111111111111111")
     } else {
         const { accessToken, refreshToken } = data.auth;
+        console.log("1111111111111111111111111111111111")
         if (accessToken || access_token) {
+            console.log("22222222222222222222222222222222222222222")
             $.setStore('KDLK_APP_ACCESS_TOKEN', accessToken || access_token);
         }
         if (refreshToken) {
+            console.log("33333333333333333333333333333333333333333")
             $.setStore('KDLK_APP_REFRESH_ACCESS_TOKEN', refreshToken);
         }
     }
     if (Cookie) {
+        console.log("4444444444444444444444444444444444444")
         $.setStore('KDLK_APP_COOKIE', Cookie);
     }
     notify();
