@@ -5,7 +5,7 @@ try {
     const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
     const { body } = $response;
     const { data } = JSON.parse(body);
-    if (url.includes('baseInfo1')) {
+    if (url.includes('baseInfo')) {
         const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
             idpUserId: idpuserid,
@@ -13,6 +13,7 @@ try {
             client_id,
             phone
         });
+    console.log("11111111111111111111111111111111111")
     } else {
         const { accessToken, refreshToken } = data.auth;
         if (accessToken || access_token) {
