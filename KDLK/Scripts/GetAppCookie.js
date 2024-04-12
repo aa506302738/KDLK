@@ -2,9 +2,13 @@ const $ = new Tool('凯迪拉克');
 
 try {
     const { url, headers } = $request;
+    console.log("1111111111111111111111111111111111111111111111111111111")
     const { Cookie, access_token, idpuserid, deviceId, client_id } = headers;
+    console.log("2222222222222222222222222222222222222222222222222222222222")
     const { body } = $response;
+    console.log("3333333333333333333333333333333333333333333333333333333333")
     const { data } = JSON.parse(body);
+    console.log("44444444444444444444444444444444444444444444444444444444444")
     if (url.includes('baseInfo')) {
         const phone = data.profileInfo.phone;
         $.setStore('KDLK_APP_HEARDERS', {
