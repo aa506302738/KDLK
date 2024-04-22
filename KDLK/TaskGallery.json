@@ -14,7 +14,7 @@
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Rewrite.conf, tag=凯迪拉克获取COOKIE, enabled=true"
         },
          {
-            "config": "21 2 * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Scripts/DailyTask.js, tag=凯迪拉克每日任务_2, enabled=true",
+            "config": "21 2 * * * https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Scripts/DailyTask_1.js, tag=凯迪拉克每日任务_2, enabled=true",
             "addons": "https://raw.githubusercontent.com/aa506302738/KDLK/main/KDLK/Rewrite.conf, tag=凯迪拉克获取COOKIE, enabled=true"
         }
     ],
